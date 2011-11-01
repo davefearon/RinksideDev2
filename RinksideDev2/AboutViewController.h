@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  AboutViewController.h
 //  RinksideDev2
 //
 //  Created by Dave Fearon on 11-11-01.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface AboutViewController : UIViewController
 
 @end
