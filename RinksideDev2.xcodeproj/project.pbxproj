@@ -15,12 +15,19 @@
 		2A7B6563146078DF005679FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B6562146078DF005679FF /* AppDelegate.m */; };
 		2A7B6566146078DF005679FF /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A7B6564146078DF005679FF /* MainStoryboard_iPhone.storyboard */; };
 		2A7B6569146078DF005679FF /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A7B6567146078DF005679FF /* MainStoryboard_iPad.storyboard */; };
-		2A7B656C146078DF005679FF /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B656B146078DF005679FF /* FirstViewController.m */; };
 		2A7B656E146078DF005679FF /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7B656D146078DF005679FF /* first.png */; };
 		2A7B6570146078DF005679FF /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7B656F146078DF005679FF /* first@2x.png */; };
-		2A7B6573146078DF005679FF /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B6572146078DF005679FF /* SecondViewController.m */; };
 		2A7B6575146078DF005679FF /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7B6574146078DF005679FF /* second.png */; };
 		2A7B6577146078DF005679FF /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7B6576146078DF005679FF /* second@2x.png */; };
+		2A7B657F14607ACC005679FF /* RinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B657E14607ACC005679FF /* RinksViewController.m */; };
+		2A7B658214607ADD005679FF /* FiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B658114607ADD005679FF /* FiltersViewController.m */; };
+		2A7B658514607AEA005679FF /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B658414607AEA005679FF /* AboutViewController.m */; };
+		2A7B65871460810D005679FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7B65861460810D005679FF /* MapKit.framework */; };
+		2A7B6589146081E8005679FF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7B6588146081E8005679FF /* CoreLocation.framework */; };
+		2A7B658C146082F4005679FF /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B658B146082F4005679FF /* Map.m */; };
+		2A7B658E14608FC5005679FF /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7B658D14608FC4005679FF /* Twitter.framework */; };
+		2A7B659014608FDE005679FF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7B658F14608FDE005679FF /* MobileCoreServices.framework */; };
+		2A7B659214608FEB005679FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7B659114608FEB005679FF /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,22 +35,31 @@
 		2A7B6552146078DF005679FF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2A7B6554146078DF005679FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2A7B6556146078DF005679FF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2A7B655A146078DF005679FF /* RinksideDev2-Info.plist */ = {isa = PBXFileReference; path = "RinksideDev2-Info.plist"; sourceTree = "<group>"; };
+		2A7B655A146078DF005679FF /* RinksideDev2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RinksideDev2-Info.plist"; sourceTree = "<group>"; };
 		2A7B655C146078DF005679FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2A7B655E146078DF005679FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2A7B6560146078DF005679FF /* RinksideDev2-Prefix.pch */ = {isa = PBXFileReference; path = "RinksideDev2-Prefix.pch"; sourceTree = "<group>"; };
-		2A7B6561146078DF005679FF /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		2A7B6560146078DF005679FF /* RinksideDev2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RinksideDev2-Prefix.pch"; sourceTree = "<group>"; };
+		2A7B6561146078DF005679FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2A7B6562146078DF005679FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2A7B6565146078DF005679FF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		2A7B6568146078DF005679FF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		2A7B656A146078DF005679FF /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
-		2A7B656B146078DF005679FF /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		2A7B656D146078DF005679FF /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		2A7B656F146078DF005679FF /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		2A7B6571146078DF005679FF /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
-		2A7B6572146078DF005679FF /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		2A7B6574146078DF005679FF /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		2A7B6576146078DF005679FF /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		2A7B657D14607ACC005679FF /* RinksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RinksViewController.h; sourceTree = "<group>"; };
+		2A7B657E14607ACC005679FF /* RinksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RinksViewController.m; sourceTree = "<group>"; };
+		2A7B658014607ADD005679FF /* FiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltersViewController.h; sourceTree = "<group>"; };
+		2A7B658114607ADD005679FF /* FiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltersViewController.m; sourceTree = "<group>"; };
+		2A7B658314607AEA005679FF /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		2A7B658414607AEA005679FF /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		2A7B65861460810D005679FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2A7B6588146081E8005679FF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2A7B658A146082F4005679FF /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		2A7B658B146082F4005679FF /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
+		2A7B658D14608FC4005679FF /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		2A7B658F14608FDE005679FF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		2A7B659114608FEB005679FF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +67,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A7B659214608FEB005679FF /* SystemConfiguration.framework in Frameworks */,
+				2A7B659014608FDE005679FF /* MobileCoreServices.framework in Frameworks */,
+				2A7B658E14608FC5005679FF /* Twitter.framework in Frameworks */,
+				2A7B6589146081E8005679FF /* CoreLocation.framework in Frameworks */,
+				2A7B65871460810D005679FF /* MapKit.framework in Frameworks */,
 				2A7B6553146078DF005679FF /* UIKit.framework in Frameworks */,
 				2A7B6555146078DF005679FF /* Foundation.framework in Frameworks */,
 				2A7B6557146078DF005679FF /* CoreGraphics.framework in Frameworks */,
@@ -63,6 +84,9 @@
 		2A7B6543146078DE005679FF = {
 			isa = PBXGroup;
 			children = (
+				2A7B659114608FEB005679FF /* SystemConfiguration.framework */,
+				2A7B658F14608FDE005679FF /* MobileCoreServices.framework */,
+				2A7B658D14608FC4005679FF /* Twitter.framework */,
 				2A7B6558146078DF005679FF /* RinksideDev2 */,
 				2A7B6551146078DF005679FF /* Frameworks */,
 				2A7B654F146078DF005679FF /* Products */,
@@ -80,6 +104,8 @@
 		2A7B6551146078DF005679FF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A7B6588146081E8005679FF /* CoreLocation.framework */,
+				2A7B65861460810D005679FF /* MapKit.framework */,
 				2A7B6552146078DF005679FF /* UIKit.framework */,
 				2A7B6554146078DF005679FF /* Foundation.framework */,
 				2A7B6556146078DF005679FF /* CoreGraphics.framework */,
@@ -94,15 +120,19 @@
 				2A7B6562146078DF005679FF /* AppDelegate.m */,
 				2A7B6564146078DF005679FF /* MainStoryboard_iPhone.storyboard */,
 				2A7B6567146078DF005679FF /* MainStoryboard_iPad.storyboard */,
-				2A7B656A146078DF005679FF /* FirstViewController.h */,
-				2A7B656B146078DF005679FF /* FirstViewController.m */,
 				2A7B656D146078DF005679FF /* first.png */,
 				2A7B656F146078DF005679FF /* first@2x.png */,
-				2A7B6571146078DF005679FF /* SecondViewController.h */,
-				2A7B6572146078DF005679FF /* SecondViewController.m */,
 				2A7B6574146078DF005679FF /* second.png */,
 				2A7B6576146078DF005679FF /* second@2x.png */,
 				2A7B6559146078DF005679FF /* Supporting Files */,
+				2A7B657D14607ACC005679FF /* RinksViewController.h */,
+				2A7B657E14607ACC005679FF /* RinksViewController.m */,
+				2A7B658014607ADD005679FF /* FiltersViewController.h */,
+				2A7B658114607ADD005679FF /* FiltersViewController.m */,
+				2A7B658314607AEA005679FF /* AboutViewController.h */,
+				2A7B658414607AEA005679FF /* AboutViewController.m */,
+				2A7B658A146082F4005679FF /* Map.h */,
+				2A7B658B146082F4005679FF /* Map.m */,
 			);
 			path = RinksideDev2;
 			sourceTree = "<group>";
@@ -188,8 +218,10 @@
 			files = (
 				2A7B655F146078DF005679FF /* main.m in Sources */,
 				2A7B6563146078DF005679FF /* AppDelegate.m in Sources */,
-				2A7B656C146078DF005679FF /* FirstViewController.m in Sources */,
-				2A7B6573146078DF005679FF /* SecondViewController.m in Sources */,
+				2A7B657F14607ACC005679FF /* RinksViewController.m in Sources */,
+				2A7B658214607ADD005679FF /* FiltersViewController.m in Sources */,
+				2A7B658514607AEA005679FF /* AboutViewController.m in Sources */,
+				2A7B658C146082F4005679FF /* Map.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
