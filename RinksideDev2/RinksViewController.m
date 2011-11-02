@@ -7,8 +7,12 @@
 //
 
 #import "RinksViewController.h"
+#import "ASIHTTPRequest.h"
+#import "MyLocation.h"
+#import "SBJson.h"
 
 @implementation RinksViewController
+//@synthesize mapView;
 
 - (void)viewWillAppear:(BOOL)animated {
     locationManager = [[CLLocationManager alloc] init];
@@ -25,7 +29,77 @@
     
     MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
     
-    [_mapView setRegion:adjustedRegion animated:YES];
+    [_mapView setRegion:adjustedRegion animated:YES]; 
+}
+
+- (void)plotRinkPositions:(NSString *)responseString {
+    
+    //NSString *testing = "pudding";
+    
+    //NSLog(@"RESPONSE: %@", responseString);
+    
+    for (id<MKAnnotation> annotation in _mapView.annotations) {
+        [_mapView removeAnnotation:annotation];
+    }
+    
+    NSDictionary *rinks = [responseString JSONValue];
+    NSLog(@"dictionary: %@", rinks);
+    for (NSDictionary *rink1 in rinks) {
+        NSLog(@"dictionary: %@", rink1);
+        //NSDictionary *level1 = [rink1 objectForKey:@"rink"];
+        //for (NSDictionary *rink2 in level1) {
+            //NSDictionary *level2 = [rink2 objectForKey:@"rink"];
+            //for (NSDictionary *data in level2) {
+                //NSString *rinkName = [data objectForKey:@"name"];
+                //NSLog(@"NAME: %@", rinkName);
+            //}
+        //}
+    }
+    /*
+    
+    NSDictionary * root = [responseString JSONValue];
+    NSArray *data = [root objectForKey:@"data"];
+    
+    for (NSArray * row in data) {
+        //NSNumber * latitude = [row objectAtIndex:11];
+        //NSNumber * longitude = [row objectAtIndex:12];
+        
+        NSString * address = [row objectAtIndex:0];
+        
+        NSLog(@"Rink: %@", address);
+    }
+     */
+}
+
+- (IBAction)refreshTapped:(id)sender {
+    //MKCoordinateRegion mapRegion = [_mapView region];
+    //CLLocationCoordinate2D centerLocation = mapRegion.center;
+    
+    //DON'T NEED THE 3 LINES BELOW AS I'M NOT PASSING ANYTHING TO THE MAPS CALL
+    //NSString *jsonFile = [[NSBundle mainBundle] pathForResource:@"command" ofType:@"json"];
+    //NSString *formatString = [NSString stringWithContentsOfFile:jsonFile encoding:NSUTF8StringEncoding error:nil];
+    //NSString *json = [NSString stringWithFormat:formatString, centerLocation.latitude, centerLocation.longitude, 0.5*METERS_PER_MILE];
+    
+    NSURL *url = [NSURL URLWithString:@"http://rinksi.de/home/map.json"];
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    request.requestMethod = @"GET";
+    
+    //DON'T NEED THE LINE BELOW AS I'M NOT PASSING ANYTHING TO THE MAPS CALL
+    //[request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [request setDelegate:self];
+    [request setCompletionBlock:^{        
+        NSString *responseString = [request responseString];
+        //NSLog(@"Response: %@", responseString);
+        [self plotRinkPositions:responseString];
+    }];
+    [request setFailedBlock:^{
+        NSError *error = [request error];
+        NSLog(@"Error: %@", error.localizedDescription);
+    }];
+    
+    [request startAsynchronous];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

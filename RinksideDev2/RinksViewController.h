@@ -18,5 +18,6 @@
     CLLocationManager *locationManager;
 }
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
+- (IBAction)refreshTapped:(id)sender;
 
 @end
