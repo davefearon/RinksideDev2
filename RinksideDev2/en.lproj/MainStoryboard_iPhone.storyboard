@@ -120,7 +120,7 @@
                     <tabBarItem key="tabBarItem" title="Rinks" image="first.png" id="9yY-0S-8uD"/>
                     <navigationItem key="navigationItem" id="Nb6-1z-CYc"/>
                     <connections>
-                        <outlet property="mapView" destination="bDa-CC-ebO" id="T4d-tC-52b"/>
+                        <outlet property="mapView" destination="bDa-CC-ebO" id="NyZ-cG-XGM"/>
                     </connections>
                 </viewController>
             </objects>

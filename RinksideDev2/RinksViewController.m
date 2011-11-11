@@ -22,14 +22,37 @@
     
     CLLocationCoordinate2D zoomLocation;
     
-    zoomLocation.latitude = locationManager.location.coordinate.latitude; //45.421528
-    zoomLocation.longitude = locationManager.location.coordinate.longitude; //-75.697174
+    zoomLocation.latitude = 45.421528;//locationManager.location.coordinate.latitude; //45.421528
+    zoomLocation.longitude = -75.697174;//locationManager.location.coordinate.longitude; //-75.697174
     
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.8*METERS_PER_MILE, 0.8*METERS_PER_MILE);
     
     MKCoordinateRegion adjustedRegion = [_mapView regionThatFits:viewRegion];
     
     [_mapView setRegion:adjustedRegion animated:YES]; 
+    
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://its.dev/rinks.php"];
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    request.requestMethod = @"GET";
+    
+    //DON'T NEED THE LINE BELOW AS I'M NOT PASSING ANYTHING TO THE MAPS CALL
+    //[request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [request setDelegate:self];
+    [request setCompletionBlock:^{        
+        NSString *responseString = [request responseString];
+        //NSLog(@"Response: %@", responseString);
+        [self plotRinkPositions:responseString];
+    }];
+    [request setFailedBlock:^{
+        NSError *error = [request error];
+        NSLog(@"Error: %@", error.localizedDescription);
+    }];
+    
+    [request startAsynchronous];
 }
 
 - (void)plotRinkPositions:(NSString *)responseString {
@@ -42,21 +65,29 @@
         [_mapView removeAnnotation:annotation];
     }
     
-    NSDictionary *rinks = [responseString JSONValue];
-    NSLog(@"dictionary: %@", rinks);
-    for (NSDictionary *rink1 in rinks) {
-        NSLog(@"dictionary: %@", rink1);
-        //NSDictionary *level1 = [rink1 objectForKey:@"rink"];
-        //for (NSDictionary *rink2 in level1) {
-            //NSDictionary *level2 = [rink2 objectForKey:@"rink"];
-            //for (NSDictionary *data in level2) {
-                //NSString *rinkName = [data objectForKey:@"name"];
-                //NSLog(@"NAME: %@", rinkName);
-            //}
-        //}
-    }
-    /*
+    NSArray *rinks = [responseString JSONValue];
+    //NSLog(@"array: %@", rinks);
     
+    for (NSArray *rink in rinks) {
+        //NSLog(@"rink: %@", rink);
+        for (NSDictionary *data in rink) {
+            //NSLog(@"info: %@", data);
+            NSNumber *latitude = [data objectForKey:@"latitude"];
+            NSNumber *longitude = [data objectForKey:@"longitude"];
+            NSString *name = [data objectForKey:@"name"];
+            NSString *address = [data objectForKey:@"address"];
+            
+            CLLocationCoordinate2D coordinate;
+            coordinate.latitude = latitude.doubleValue;
+            coordinate.longitude = longitude.doubleValue;
+            
+            
+            MyLocation *annotation = [[[MyLocation alloc] initWithName:name address:address coordinate:coordinate] autorelease];
+            [_mapView addAnnotation:annotation];
+        }
+    }
+    
+    /*
     NSDictionary * root = [responseString JSONValue];
     NSArray *data = [root objectForKey:@"data"];
     
@@ -80,7 +111,8 @@
     //NSString *formatString = [NSString stringWithContentsOfFile:jsonFile encoding:NSUTF8StringEncoding error:nil];
     //NSString *json = [NSString stringWithFormat:formatString, centerLocation.latitude, centerLocation.longitude, 0.5*METERS_PER_MILE];
     
-    NSURL *url = [NSURL URLWithString:@"http://rinksi.de/home/map.json"];
+    //NSURL *url = [NSURL URLWithString:@"http://rinksi.de/home/map.json"];
+    NSURL *url = [NSURL URLWithString:@"http://its.dev/rinks.php"];
     
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     request.requestMethod = @"GET";
@@ -100,6 +132,32 @@
     }];
     
     [request startAsynchronous];
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    static NSString *identifier = @"MyLocation";
+    if ([annotation isKindOfClass:[MyLocation class]]) {
+        MyLocation *location = (MyLocation *) annotation;
+        
+        MKPinAnnotationView *annotationView = (MKPinAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+        if (annotationView == nil) {
+            annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        } else {
+            annotationView.annotation = annotation;
+        }
+        
+        annotationView.enabled = YES;
+        annotationView.canShowCallout = YES;
+        
+        
+        if( [location.name compare:@"Jack Purcell Park"] == NSOrderedSame) {
+            annotationView.pinColor = MKPinAnnotationColorPurple;
+            NSLog(@"name: ", @"jack");
+        }
+        
+        return annotationView;
+    }
+    return nil;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

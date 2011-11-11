@@ -41,7 +41,7 @@
 		2A7B6570146078DF005679FF /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7B656F146078DF005679FF /* first@2x.png */; };
 		2A7B6575146078DF005679FF /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7B6574146078DF005679FF /* second.png */; };
 		2A7B6577146078DF005679FF /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7B6576146078DF005679FF /* second@2x.png */; };
-		2A7B657F14607ACC005679FF /* RinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B657E14607ACC005679FF /* RinksViewController.m */; };
+		2A7B657F14607ACC005679FF /* RinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B657E14607ACC005679FF /* RinksViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2A7B658214607ADD005679FF /* FiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B658114607ADD005679FF /* FiltersViewController.m */; };
 		2A7B658514607AEA005679FF /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A7B658414607AEA005679FF /* AboutViewController.m */; };
 		2A7B65871460810D005679FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7B65861460810D005679FF /* MapKit.framework */; };
